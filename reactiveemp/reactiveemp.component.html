@@ -1,0 +1,135 @@
+<!--<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Basic Details</ng-template>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name" required>
+      </mat-form-field>
+      <br/>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Description" formControlName="description" required>
+        </textarea>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Amount & Stock</ng-template>
+      <mat-form-field>
+        <mat-label>Amount</mat-label>
+        <input matInput placeholder="Amount" formControlName="amount" required>
+      </mat-form-field>
+      <br/>
+      <mat-form-field>
+        <mat-label>Stock</mat-label>
+        <input matInput placeholder="Stock" formControlName="stock" required>
+      </mat-form-field>
+      <br/>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+  
+    <mat-list>
+	 <mat-list-item> <strong>Name:</strong> {{ this.firstFormGroup.value.name }}</mat-list-item>
+	 <mat-list-item> <strong>Description:</strong> {{ this.firstFormGroup.value.description }}</mat-list-item>
+	 <mat-list-item> <strong>Amount:</strong> {{ this.secondFormGroup.value.amount }}</mat-list-item>
+	 <mat-list-item> <strong>Stock:</strong> {{ this.secondFormGroup.value.stock }}</mat-list-item>
+	</mat-list>
+  
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="submit()">Submit</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>-->
+<div class="test">
+    <mat-icon style="size:30px" id="close-icon" (click)="Closedialog()" [mat-dialog-close]="false">close</mat-icon>
+    <mat-card class="example-card">
+        <div class="first">
+            <div [ngStyle]="{'width.%':width}" [style.background-color]="width<=50? 'red':'green' " class="second"></div>
+            <p>{{width}} %</p>
+        </div>
+        <mat-horizontal-stepper [linear]="isLinear" #stepper>
+
+            <mat-step [stepControl]="formValue">
+                <form [formGroup]="formValue">
+                    <ng-template matStepLabel>Basic Details</ng-template>
+                    <div class="demo1">
+                        <mat-form-field>
+                            <i class="fa fa-id-card-o" aria-hidden="true"></i>
+                            <mat-label>id</mat-label>
+                            <input matInput formControlName="id" required>
+                        </mat-form-field>
+                        <br/>
+                        <mat-form-field appearance="fill">
+                            <mat-label>FirstName</mat-label>
+                            <input [formControl]="colorControl" name="firstName" matInput placeholder="firstName" formControlName="firstName"  required>
+                        </mat-form-field>
+                        <br/>
+                        <mat-form-field appearance="fill">
+                            <mat-label>LastName</mat-label>
+                            <input [formControl]="colorControl" matInput placeholder="lastName" formControlName="lastName" required>
+                        </mat-form-field>
+                        <br/>
+                        <div>
+                            <button mat-raised-button color="primary" (click)=" increasetheprogressbar(formValue)" mat-button matStepperNext>Next</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-step>
+
+            <mat-step [stepControl]="secondFormGroup">
+                <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Contact Details</ng-template>
+                    <mat-card class="demo1">
+                        <mat-icon style="size:10px"> email</mat-icon>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Email</mat-label>
+                            <input [formControl]="colorControl"  matInput placeholder="email" formControlName="email"  required>
+                        </mat-form-field>
+                        
+                        <br/>
+                        <mat-icon style="size:10px"> phone</mat-icon>
+                        <mat-form-field appearance="fill">
+                            <mat-label>ContactNumber</mat-label>
+                            <input [formControl]="colorControl" matInput placeholder="contactNumber" formControlName="contactNumber" required>
+                        </mat-form-field>
+                        <br/>
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button (click)=" increasetheprogressbar1(secondFormGroup)" matStepperNext>Next</button>
+                        </div>
+                    </mat-card>
+                </form>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <p>You are now done.</p>
+                <mat-list>
+                    <mat-list-item> <strong>First Name:</strong> {{ this.formValue.value.firstName }}</mat-list-item>
+                    <mat-list-item> <strong>last Name:</strong> {{ this.formValue.value.lastName}}</mat-list-item>
+                    <mat-list-item> <strong>emailid:</strong> {{ this.secondFormGroup.value.email }}</mat-list-item>
+                    <mat-list-item> <strong>ContactNumber:</strong> {{ this.secondFormGroup.value.contactNumber }}</mat-list-item>
+                </mat-list>
+                <div>
+                    <button mat-button matStepperPrevious><mat-icon>undo</mat-icon>Back</button>
+                    <button mat-raised-button (click)="[stepper.reset(),decreaseprogressbar()]">Reset</button>
+                    <button mat-stroked-button color="accent" (click)="submit()">Submit</button>
+                </div>
+            </mat-step>
+        </mat-horizontal-stepper>
+
+    </mat-card>
+</div>

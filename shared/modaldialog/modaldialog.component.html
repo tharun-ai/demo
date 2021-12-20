@@ -1,0 +1,13 @@
+
+<!--<h3>Shared modal</h3>-->
+<div  class="container" fxFlex fxLayout="column">
+<div  class="content-container">
+  <mat-icon id="close-icon"(click)="Closedialog()" [mat-dialog-close]="false">close</mat-icon>
+  <span class="content-span full-width">{{data.message}}</span>
+</div>
+<div fxFlex fxLayout="row" fxLayoutAlign="space-around">
+<button *ngIf="data.delete==true?true:false" mat-flat-button id="no-button" [mat-dialog-close]="false">No</button>
+<button *ngIf="data.delete==true?true:false"  mat-flat-button id="yes-button" [mat-dialog-close]="true">Yes</button>
+<button *ngIf="data.delete==false?true:false" mat-flat-button id="ok-button" [mat-dialog-close]="true">OK</button>
+</div>
+</div>

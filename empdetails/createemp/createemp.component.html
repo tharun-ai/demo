@@ -1,0 +1,30 @@
+
+<div class="container">
+                <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                    <div class="signup-form" fxFlex fxLayout="column">
+                        <!--<input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="movie._id">-->
+                        <mat-form-field>
+                            <input matInput disabled type="text" placeholder="id" name="id" #id="ngModel" [(ngModel)]="emp.id" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput type="text" placeholder="Firstname" name="firstName" #firstName="ngModel" [(ngModel)]="emp.firstName" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput type="text" placeholder="lastName" name="lastName" #lastName="ngModel" ngModel [(ngModel)]="emp.lastName" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput type="text" placeholder="email" name="email" #email="ngModel" ngModel [(ngModel)]="emp.email" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput type="text" placeholder="number" name="contactNumber" #contactNumber="ngModel" ngModel [(ngModel)]="emp.contactNumber" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput type="text" placeholder="salary" name="salary" #salary="ngModel" [(ngModel)]="emp.salary" required>
+                        </mat-form-field>
+                        <div class="d-flex justify-content-space-around">
+                            <button type="submit" [disabled]="!f.form.valid" class="btn btn-success">Submit</button>
+                            <button routerLink="/emplist" class="btn btn-warning">Back</button>
+                        </div>
+                    </div>
+                </form>
+            </div>

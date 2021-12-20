@@ -1,0 +1,18 @@
+
+<mat-card class="example-card">
+<div mat-card class="example-header-image" fxFlex fxLayout="row" >
+  <img  mat-card-image   src="https://cdn.pixabay.com/photo/2017/02/23/13/05/profile-2092113__480.png"  alt="" class="img">
+   <div> 
+   <mat-card-content>
+    <mat-list>
+      <mat-list-item> <strong>First Name:</strong> {{ cur_emp.firstName }}</mat-list-item>
+      <mat-list-item> <strong>last Name:</strong> {{ cur_emp.lastName}}</mat-list-item>
+      <mat-list-item> <strong>emailid:</strong> {{ cur_emp.email }}</mat-list-item>
+     <mat-list-item> <strong>ContactNumber:</strong> {{ cur_emp.contactNumber }}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+   </div>
+   </div>
+</mat-card>
+ <button mat-button>previous</button>
+    <button mat-button>Next</button>
